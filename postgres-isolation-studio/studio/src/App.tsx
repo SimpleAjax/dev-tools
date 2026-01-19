@@ -8,6 +8,8 @@ import { TableWatcher } from "@/components/TableWatcher";
 import { SqlTerminal } from "@/components/SqlTerminal";
 import { useTerminalSession } from "@/hooks/use-terminal-session";
 
+import { GuideModal } from "@/components/GuideModal";
+
 function App() {
   // We need to define the handlers BEFORE useTerminalSession if we want to pass them, 
   // but useTerminalSession returns the objects we need to refresh.
@@ -82,6 +84,9 @@ function App() {
       {/* Navbar/Header */}
       <header className="h-14 border-b flex items-center px-6 justify-between bg-card">
         <div className="font-bold text-lg tracking-tight">Postgres Isolation Studio</div>
+        <div className="flex items-center gap-2">
+          <GuideModal />
+        </div>
       </header>
 
       {/* Main Content */}
