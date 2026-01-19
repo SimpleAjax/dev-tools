@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simulated Locking POC</title>
+</head>
+
+<body>
+    <h1>Simulated Locking POC</h1>
+    <pre id="output" style="background: #f0f0f0; padding: 10px; border: 1px solid #ccc;"></pre>
+
+    <script type="module">
+        import { PGlite } from "https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/index.js";
+
+        const output = document.getElementById('output');
+        const log = (msg) => {
+            console.log(msg);
+            output.innerText += msg + '\n';
+        };
+
+        // --- 1. The Virtual Lock Manager ---
+        class LockManager {
+            constructor() {
+                // Map<ResourceKey, OwnerTxId>
+                this.locks = new Map();
+                // Map<ResourceKey, Array<ResolveFunction>>
+                this.queues = new Map();
+            }
+
+            async acquire(resource, txId) {
+                if (this.locks.has(resource)) {
+                    const owner = this.locks.get(resource);
+                    if (owner === txId) return; // Re-entrant
+
+                    log(`[LockManager] Resource ${resource} locked by ${owner}. Tx ${txId} WAITING...`);
+                    return new Promise(resolve => {
+                        if (!this.queues.has(resource)) this.queues.set(resource, []);
+                        this.queues.get(resource).push(resolve);
+                    });
+                }
+                this.locks.set(resource, txId);
+                log(`[LockManager] Tx ${txId} ACQUIRED ${resource}`);
+            }
+
+            releaseAll(txId) {
+                for (const [resource, owner] of this.locks.entries()) {
+                    if (owner === txId) {
+                        this.locks.delete(resource);
+                        log(`[LockManager] Tx ${txId} RELEASED ${resource}`);
+
+                        // Wake up next
+                        if (this.queues.has(resource)) {
+                            const queue = this.queues.get(resource);
+                            if (queue.length > 0) {
+                                const nextResolve = queue.shift();
+                                // Ideally, the next one claims it. For simplicity, we assume strict FIFO handoff
+                                // In a real manager, we'd probably re-evaluate or pass the lock ownership.
+                                // Let's just wake them up and let them try to acquire (or just grant it).
+                                // Granting directly:
+                                // this.locks.set(resource, nextTxId?); // We don't know nextTxId easily here without storing it.
+                                // Simplified: Just clear lock, wake up next, let them re-acquire immediately.
+                                nextResolve();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        const globalLockManager = new LockManager();
+
+        // --- 2. The DB Wrapper (Client Simulator) ---
+        class SimulatedClient {
+            constructor(name, dbUrl) {
+                this.name = name;
+                this.dbUrl = dbUrl;
+                this.db = null;
+                this.txId = null;
+            }
+
+            async init() {
+                this.db = new PGlite(this.dbUrl);
+                await this.db.waitReady;
+            }
+
+            async query(sql) {
+                // simple parser for POC
+                const isBegin = sql.match(/BEGIN/i);
+                const isCommit = sql.match(/COMMIT/i);
+                const isSelectForUpdate = sql.match(/SELECT.*FROM\s+(\w+).*WHERE\s+id=(\d+).*FOR UPDATE/i);
+                const isUpdate = sql.match(/UPDATE\s+(\w+).*WHERE\s+id=(\d+)/i);
+
+                if (isBegin) {
+                    this.txId = this.name + '_' + Date.now();
+                    log(`${this.name}: BEGIN (TxId: ${this.txId})`);
+                }
+
+                if (isSelectForUpdate && this.txId) {
+                    const [_, table, id] = isSelectForUpdate;
+                    const resource = `${table}:${id}`;
+                    log(`${this.name}: Requesting Lock on ${resource}...`);
+                    // This will AWAIT if locked
+                    await globalLockManager.acquire(resource, this.txId);
+                    log(`${this.name}: Lock Granted. Running SQL...`);
+                }
+
+                if (isUpdate && this.txId) {
+                    const [_, table, id] = isUpdate;
+                    const resource = `${table}:${id}`;
+                    // "Implicit" lock check for UPDATE
+                    log(`${this.name}: Requesting Write Lock on ${resource}...`);
+                    await globalLockManager.acquire(resource, this.txId);
+                }
+
+                // Execute real SQL
+                const start = Date.now();
+                const res = await this.db.query(sql);
+                const duration = Date.now() - start;
+
+                if (duration > 50) log(`${this.name}: SQL Executed in ${duration}ms`);
+
+                if (isCommit && this.txId) {
+                    log(`${this.name}: COMMIT. Releasing locks...`);
+                    globalLockManager.releaseAll(this.txId);
+                    this.txId = null;
+                }
+
+                return res;
+            }
+        }
+
+        async function run() {
+            try {
+                // Setup
+                const clientA = new SimulatedClient('Client A', 'idb://sim-db');
+                await clientA.init();
+                // Ensure data
+                await clientA.db.query('CREATE TABLE IF NOT EXISTS items (id INT PRIMARY KEY, val TEXT);');
+                await clientA.db.query('DELETE FROM items');
+                await clientA.db.query("INSERT INTO items VALUES (1, 'initial')");
+
+                const clientB = new SimulatedClient('Client B', 'idb://sim-db');
+                await clientB.init();
+
+                log('--- Starting Simulated Locking Scenario ---');
+
+                // 1. Client A starts Tx and Locks
+                await clientA.query('BEGIN');
+                await clientA.query('SELECT * FROM items WHERE id=1 FOR UPDATE');
+                await clientA.query("UPDATE items SET val='A_was_here' WHERE id=1");
+
+                // 2. Client B tries to Update (Should Block)
+                log('--- Client B Attempting Update (Should Block) ---');
+
+                await clientB.query('BEGIN');
+
+                // Fire Client B asynchronously so we can see it blocking
+                let bDone = false;
+                const pB = clientB.query("UPDATE items SET val='B_was_here' WHERE id=1")
+                    .then(r => {
+                        bDone = true;
+                        log('Client B: Update Finished!');
+                        return r;
+                    });
+
+                // Wait 1.5s to prove B is blocked
+                await new Promise(r => setTimeout(r, 1500));
+
+                if (bDone) {
+                    log('FAILURE: Client B finished immediately (Locking Simulator Failed)');
+                } else {
+                    log('SUCCESS: Client B is blocked by Simulator.');
+
+                    // 3. Client A Commits
+                    log('--- Client A Committing ---');
+                    await clientA.query('COMMIT');
+
+                    // 4. Wait for B to finish
+                    await pB;
+                    await clientB.query('COMMIT');
+
+                    // 5. Verify Data
+                    const finalRes = await clientA.db.query('SELECT val FROM items WHERE id=1');
+                    log(`Final Value: ${finalRes.rows[0].val} (Should be 'B_was_here')`);
+                }
+
+            } catch (e) {
+                log('ERROR: ' + e.message + '\n' + e.stack);
+            }
+        }
+
+        run();
+    </script>
+</body>
+
+</html>

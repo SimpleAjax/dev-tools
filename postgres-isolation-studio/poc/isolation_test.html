@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGlite Isolation Test</title>
+</head>
+
+<body>
+    <h1>PGlite Isolation Test</h1>
+    <pre id="output" style="background: #f0f0f0; padding: 10px; border: 1px solid #ccc;"></pre>
+
+    <script type="module">
+        import { PGlite } from "https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/index.js";
+
+        const output = document.getElementById('output');
+        const log = (msg) => {
+            console.log(msg);
+            output.innerText += msg + '\n';
+        };
+
+        async function run() {
+            try {
+                log('Starting test...');
+
+                // TEST 1: Single Instance Session Behavior
+                log('\n--- TEST 1: Single Instance Session Check ---');
+                const db1 = new PGlite();
+                await db1.waitReady;
+                log('DB1 Ready.');
+
+                await db1.query('BEGIN');
+                log('DB1: Started Tx 1');
+
+                try {
+                    await db1.query('BEGIN');
+                    log('DB1: Started Tx 2 (Unexpected if single session behavior is strictly flat)');
+                } catch (e) {
+                    log('DB1: Second BEGIN failed (Expected for single session): ' + e.message);
+                }
+                await db1.query('ROLLBACK');
+
+
+                // TEST 2: Two Instances, Shared Data (Memory - Impossible, let's try IDB)
+                // Note: PGlite usually locks IDB. So two instances might fail to acquire lock.
+                log('\n--- TEST 2: Two Instances, Shared IDB "test-db" ---');
+
+                try {
+                    log('\n--- TEST 3: Connection/Session Check ---');
+                    const db = new PGlite();
+                    await db.waitReady;
+
+                    const res1 = await db.query('SELECT pg_backend_pid()');
+                    const pid1 = res1.rows[0].pg_backend_pid;
+                    log('Call 1 PID: ' + pid1);
+
+                    const res2 = await db.query('SELECT pg_backend_pid()');
+                    const pid2 = res2.rows[0].pg_backend_pid;
+                    log('Call 2 PID: ' + pid2);
+
+                    if (pid1 === pid2) {
+                        log('CONCLUSION: PGlite uses a SINGLE backend session for all queries on one instance.');
+                    } else {
+                        log('CONCLUSION: PGlite spawns new backends per query?');
+                    }
+
+                    // What if we try to use the low-level protocol or "clients"?
+                    // PGlite doesn't seem to expose "connect()". 
+
+                } catch (e) {
+                    log('Test 3 Error: ' + e.message);
+                }
+
+            } catch (globalErr) {
+                log('Critical Error: ' + globalErr.toString());
+            }
+        }
+
+        run();
+    </script>
+</body>
+
+</html>
