@@ -44,14 +44,7 @@ const tools = [
     phase: 1,
     slug: 'DB-05'
   },
-  {
-    name: 'ERD to SQL Generator',
-    description: 'Render a simple ER diagram from Mermaid.js input or generate SQL DDL.',
-    href: '/tools/erd-to-sql',
-    icon: Workflow,
-    phase: 2,
-    slug: 'DB-11'
-  },
+
   {
     name: 'Postgres pg_hba.conf',
     description: 'GUI for generating the complex, error-prone Postgres authentication config file.',

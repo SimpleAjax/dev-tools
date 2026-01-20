@@ -37,12 +37,7 @@ const tools = [
         icon: Cable,
         phase: 1
     },
-    {
-        name: 'ERD to SQL',
-        href: '/tools/erd-to-sql',
-        icon: Workflow,
-        phase: 2
-    },
+
     {
         name: 'pg_hba.conf',
         href: '/tools/pg-hba-generator',
