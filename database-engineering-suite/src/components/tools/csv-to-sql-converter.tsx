@@ -55,7 +55,7 @@ export function CsvToSqlConverter() {
                     generateSql(results.data as any[], results.meta.fields || []);
                     setError(null);
                 },
-                error: (err) => {
+                error: (err: Error) => {
                     setError(err.message);
                 }
             });
