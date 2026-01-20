@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Box, Container, Layers, Settings2, FileCode, Shield } from "lucide-react"
+import { ArrowRight, Box, Container, Layers, Settings2, FileCode, Shield, FolderArchive, Bell, Cpu, ShieldCheck, Network } from "lucide-react"
 
 export const metadata = {
   title: 'Kubernetes Engineering Tools | Free DevOps Utilities',
@@ -34,6 +34,69 @@ const TOOLS = [
     href: "/tools/cron-visualizer",
     icon: Settings2,
     category: "Operations",
+    badge: "New"
+  },
+  {
+    id: "OPS-04",
+    title: "Docker Compose to K8s",
+    description: "Convert docker-compose.yml files into production-ready Kubernetes Deployments and Services.",
+    href: "/tools/compose-converter",
+    icon: Layers,
+    category: "Migration",
+    badge: "New"
+  },
+  {
+    id: "OPS-05",
+    title: "Dockerfile Linter",
+    description: "Analyze Dockerfiles for security risks, build performance issues, and best practices.",
+    href: "/tools/dockerfile-linter",
+    icon: Shield,
+    category: "Security",
+    badge: "New"
+  },
+  {
+    id: "OPS-03",
+    title: "Helm Chart Scaffolder",
+    description: "Instantly generate a valid Helm v3 chart structure with standard templates.",
+    href: "/tools/helm-scaffolder",
+    icon: FolderArchive,
+    category: "Packaging",
+    badge: "New"
+  },
+  {
+    id: "OPS-07",
+    title: "Prometheus Alert Builder",
+    description: "Visually build PromQL alerting rules with thresholds, severity, and descriptions.",
+    href: "/tools/prometheus-alert",
+    icon: Bell,
+    category: "Monitoring",
+    badge: "New"
+  },
+  {
+    id: "OPS-09",
+    title: "Resource Calculator",
+    description: "Calculate optimal CPU/Memory requests and limits based on runtime and load.",
+    href: "/tools/resource-calculator",
+    icon: Cpu,
+    category: "SRE",
+    badge: "New"
+  },
+  {
+    id: "OPS-06",
+    title: "RBAC Generator",
+    description: "Create secure Roles and ClusterRoles by visually selecting resources and verbs.",
+    href: "/tools/rbac-generator",
+    icon: ShieldCheck,
+    category: "Security",
+    badge: "New"
+  },
+  {
+    id: "OPS-10",
+    title: "Network Policy Visualizer",
+    description: "Design and visualize Ingress/Egress traffic rules and generate NetworkPolicies.",
+    href: "/tools/network-policy",
+    icon: Network,
+    category: "Security",
     badge: "New"
   }
 ]
