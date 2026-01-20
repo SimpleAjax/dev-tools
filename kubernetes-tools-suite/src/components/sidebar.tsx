@@ -18,7 +18,8 @@ import {
     Bell,
     Cpu,
     ShieldCheck,
-    Network
+    Network,
+    Ban
 } from "lucide-react"
 
 const sidebarItems = [
@@ -86,6 +87,12 @@ const sidebarItems = [
         title: "Network Policy",
         href: "/tools/network-policy",
         icon: Network,
+        variant: "ghost"
+    },
+    {
+        title: "Taint Visualizer",
+        href: "/tools/taint-toleration",
+        icon: Ban,
         variant: "ghost"
     }
 ]
