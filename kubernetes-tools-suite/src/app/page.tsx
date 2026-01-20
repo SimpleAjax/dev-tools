@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Box, Container, Layers, Settings2, FileCode, Shield, FolderArchive, Bell, Cpu, ShieldCheck, Network, Ban } from "lucide-react"
+import { ArrowRight, Box, Container, Layers, Settings2, FileCode, Shield, FolderArchive, Bell, Cpu, ShieldCheck, Network, CircleOff } from "lucide-react"
 
 export const metadata = {
   title: 'Kubernetes Engineering Tools | Free DevOps Utilities',
@@ -104,7 +104,7 @@ const TOOLS = [
     title: "Taint & Toleration Visualizer",
     description: "Interactive playground to understand how Node Taints block or allow Pod scheduling.",
     href: "/tools/taint-toleration",
-    icon: Ban,
+    icon: CircleOff,
     category: "Scheduling",
     badge: "New"
   }

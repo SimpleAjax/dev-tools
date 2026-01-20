@@ -19,7 +19,7 @@ import {
     Cpu,
     ShieldCheck,
     Network,
-    Ban
+    CircleOff
 } from "lucide-react"
 
 const sidebarItems = [
@@ -92,7 +92,7 @@ const sidebarItems = [
     {
         title: "Taint Visualizer",
         href: "/tools/taint-toleration",
-        icon: Ban,
+        icon: CircleOff,
         variant: "ghost"
     }
 ]
