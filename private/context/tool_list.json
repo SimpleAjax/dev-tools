@@ -1,0 +1,124 @@
+[
+  {
+    "category": "General Tools",
+    "tools": [
+      { "name": "Bufferbloat and speed test", "description": "Measure internet speed and bufferbloat to evaluate connection performance.", "type": "backend" },
+      { "name": "Conversion calculator", "description": "Convert between a wide range of units, including distance, weight, and temperature.", "type": "frontend" },
+      { "name": "Relay", "description": "Debug and inspect websites with JavaScript disabled.", "type": "backend" },
+      { "name": "Screen recorder", "description": "Record your screen without having to download anything.", "type": "frontend" }
+    ]
+  },
+  {
+    "category": "Text Tools",
+    "tools": [
+      { "name": "Diff viewer", "description": "Compare text or code files to highlight line-by-line differences.", "type": "frontend" },
+      { "name": "Notepad", "description": "Write and edit text with syntax highlighting.", "type": "frontend" },
+      { "name": "Text analyser", "description": "Gather metrics like word count, readability, and sentiment from text.", "type": "frontend" }
+    ]
+  },
+  {
+    "category": "Time Tools",
+    "tools": [
+      { "name": "Cron parser", "description": "Interpret and validate cron schedule expressions.", "type": "frontend" },
+      { "name": "Stopwatch", "description": "Measure time intervals with lap times, start, stop, and reset functions. ", "type": "frontend" },
+      { "name": "Time zones", "description": "Compare current time across different international time zones.", "type": "frontend" },
+      { "name": "Timer", "description": "Set countdown timers with alarm functionality.", "type": "frontend" },
+      { "name": "Timestamp converter", "description": "Convert timestamps between epoch time and human-readable date-time formats.", "type": "frontend" }
+    ]
+  },
+  {
+    "category": "Data & File Tools",
+    "tools": [
+      { "name": "Barcode generator", "description": "Generate barcodes from text or file inputs in multiple formats.", "type": "frontend" },
+      { "name": "Checksum", "description": "Compute checksums for files and strings using various algorithms.", "type": "frontend" },
+      { "name": "Collision calculator", "description": "Estimate collision probability for unique identifiers like UUIDs.", "type": "frontend" },
+      { "name": "JSON viewer", "description": "Visualize, format, and fix malformed JSON data.", "type": "frontend" },
+      { "name": "QR code generator", "description": "Create QR codes for URLs, text, and files with customization options.", "type": "frontend" },
+      { "name": "Sample data generator", "description": "Generate realistic sample data for testing and development purposes.", "type": "frontend" },
+      { "name": "SQLite tester", "description": "Test SQL queries in an ephemeral SQLite database.", "type": "frontend" },
+      { "name": "Structured data converter", "description": "Convert between JSON, YAML, TOML, CSV, and XML.", "type": "frontend" },
+      { "name": "Type generator", "description": "Create types for Rust, Kotlin, TS, and more from various formats.", "type": "frontend" },
+      { "name": "Unicode analyser", "description": "Inspect Unicode characters for their properties and code points.", "type": "frontend" },
+      { "name": "UUID generator", "description": "Create universally unique identifiers in standard forms.", "type": "frontend" },
+      { "name": "EXIF viewer", "description": "Reveal embedded EXIF metadata in digital photographs.", "type": "frontend" },
+      { "name": "File converter", "description": "Convert media files across various formats (MP3, MP4, WEBP, etc.).", "type": "backend" },
+      { "name": "Image upscaler", "description": "Enhance image quality through resolution upscaling using AI.", "type": "backend" },
+      { "name": "PDF transformer", "description": "Perform transformations on PDF files (linearization, encryption, etc.).", "type": "backend" },
+      { "name": "SVG minifier", "description": "Optimize SVG files by removing excess markup.", "type": "frontend" },
+      { "name": "ZIP extractor", "description": "Inspect ZIP files online and download individual contents.", "type": "frontend" }
+    ]
+  },
+  {
+    "category": "Networking Tools",
+    "tools": [
+      { "name": "ASN lookup", "description": "Retrieve information on Autonomous System Numbers.", "type": "backend" },
+      { "name": "DNS latency", "description": "Check the time taken for DNS queries from multiple global locations.", "type": "backend" },
+      { "name": "DNS lookup", "description": "Resolve domain names to IP addresses and other records.", "type": "backend" },
+      { "name": "DNS propagation", "description": "Check how different DNS services resolve a domain's IP.", "type": "backend" },
+      { "name": "DS lookup", "description": "Find Delegation Signer records for DNSSEC validation.", "type": "backend" },
+      { "name": "HTTP latency", "description": "Evaluate response time for HTTP requests worldwide.", "type": "backend" },
+      { "name": "IP lookup", "description": "Retrieve geolocation, ISP, and other details for an IP address.", "type": "backend" },
+      { "name": "MAC vendor lookup", "description": "Identify the manufacturer based on a MAC address.", "type": "backend" },
+      { "name": "Ping", "description": "Test network latency and server responsiveness.", "type": "backend" },
+      { "name": "RDAP lookup", "description": "Retrieve registration data using the RDAP protocol.", "type": "backend" },
+      { "name": "STUN tester", "description": "Check connectivity with STUN servers for NAT traversal.", "type": "frontend" },
+      { "name": "Traceroute", "description": "Trace network paths to destination hosts from multiple locations.", "type": "backend" },
+      { "name": "TURN tester", "description": "Verify server connections for media relaying via TURN.", "type": "backend" },
+      { "name": "WebSocket tester", "description": "Check WebSocket connections for data send/receive capabilities.", "type": "frontend" },
+      { "name": "WHOIS lookup", "description": "Find ownership and registration details for domains and IPs.", "type": "backend" }
+    ]
+  },
+  {
+    "category": "Website Tools",
+    "tools": [
+      { "name": "Accessibility checker", "description": "Assess website compliance with accessibility standards.", "type": "backend" },
+      { "name": "Browser support", "description": "Check compatibility for web technologies in various browsers.", "type": "frontend" },
+      { "name": "Performance checker", "description": "Measure website performance metrics for speed and UX.", "type": "backend" },
+      { "name": "Robots.txt generator", "description": "Create robots.txt files to guide web crawlers.", "type": "frontend" },
+      { "name": "SSL checker", "description": "Inspect SSL/TLS certificate details for configuration issues.", "type": "backend" },
+      { "name": "Stack lookup", "description": "Identify libraries and frameworks used on a website.", "type": "backend" },
+      { "name": "Subdomain finder", "description": "Find all subdomains for a specific website.", "type": "backend" }
+    ]
+  },
+  {
+    "category": "Code & Regex Tools",
+    "tools": [
+      { "name": "Code formatter", "description": "Format various languages (Javascript, CSS, HTML, etc.).", "type": "frontend" },
+      { "name": "Code runner", "description": "Execute and test server-side code directly in the browser.", "type": "backend" },
+      { "name": "JS benchmark", "description": "Run performance benchmarks on JavaScript code snippets.", "type": "frontend" },
+      { "name": "JS console", "description": "Use a standalone JavaScript console for debugging. ", "type": "frontend" },
+      { "name": "JS minifier", "description": "Compress JavaScript code to reduce file size.", "type": "frontend" },
+      { "name": "JS obfuscator", "description": "Obfuscate JavaScript code to protect logic.", "type": "frontend" },
+      { "name": "Syntax checker", "description": "Validate syntax for languages like JS, TS, JSON, etc.", "type": "frontend" },
+      { "name": "ReDoS checker", "description": "Examine regular expressions for potential DoS vulnerabilities.", "type": "frontend" },
+      { "name": "Regex data generator", "description": "Create test data matching regular expressions.", "type": "frontend" },
+      { "name": "Regex generator", "description": "Create regular expressions matching a given set of text strings.", "type": "frontend" }
+    ]
+  },
+  {
+    "category": "Hardware & Security Tools",
+    "tools": [
+      { "name": "Dead pixel tester", "description": "Identify and repair stuck pixels on screens.", "type": "frontend" },
+      { "name": "Gamepad tester", "description": "Test functionality of game controllers and joysticks.", "type": "frontend" },
+      { "name": "GPU tester", "description": "Check GPU details and measure fillrate.", "type": "frontend" },
+      { "name": "Certificate lookup", "description": "Search for a website's SSL certificates.", "type": "backend" },
+      { "name": "Chmod calculator", "description": "Calculate file/directory permission values.", "type": "frontend" },
+      { "name": "Email checker", "description": "Verify email validity and activation.", "type": "backend" },
+      { "name": "Password checker", "description": "Check if a password is in known security breaches.", "type": "backend" },
+      { "name": "Password generator", "description": "Create strong passwords with custom options.", "type": "frontend" },
+      { "name": "RSA generator", "description": "Generate RSA key pairs for encryption.", "type": "frontend" },
+      { "name": "String decoder", "description": "Decode encrypted text automatically.", "type": "frontend" },
+      { "name": "String identifier", "description": "Identify hard-coded strings from various sources. ", "type": "frontend" }
+    ]
+  },
+  {
+    "category": "Reports & External",
+    "tools": [
+      { "name": "Domain rankings", "description": "View the currently most popular domains.", "type": "backend" },
+      { "name": "Internet outages", "description": "View locations where outages have been observed.", "type": "backend" },
+      { "name": "Bundlebee", "description": "Browse NPM package data and source code.", "type": "backend" },
+      { "name": "Colorhex", "description": "Manipulate colors and simulate color blindness.", "type": "frontend" },
+      { "name": "Filedrop", "description": "Transfer files between devices using WebRTC.", "type": "frontend" }
+    ]
+  }
+]
