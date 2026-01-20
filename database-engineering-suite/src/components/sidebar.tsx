@@ -128,14 +128,14 @@ export function Sidebar() {
     const pathname = usePathname();
 
     return (
-        <div className="w-64 border-r bg-slate-50/40 dark:bg-slate-900/40 h-screen flex flex-col sticky top-0 hidden md:flex">
-            <div className="p-6 border-b">
+        <div className="w-64 border-r bg-slate-50/40 dark:bg-slate-900/40 h-full flex flex-col hidden md:flex">
+            <div className="p-6 border-b shrink-0">
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl">
                     <Database className="h-6 w-6 text-blue-600" />
                     <span>DB Engineering</span>
                 </Link>
             </div>
-            <ScrollArea className="flex-1 py-4">
+            <div className="flex-1 overflow-y-auto py-4">
                 <div className="px-4 space-y-6">
                     <div>
                         <h3 className="mb-2 px-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
@@ -173,7 +173,7 @@ export function Sidebar() {
                         ))}
                     </div>
                 </div>
-            </ScrollArea>
+            </div>
         </div>
     );
 }
