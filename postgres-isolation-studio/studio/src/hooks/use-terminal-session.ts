@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { SimulatedSession } from "@/lib/simulated-session";
 import type { PromptLine, LockState } from "@/types/terminal";
+import type { TimelineEvent } from "@/types/timeline";
 
 export interface TerminalState {
     lines: PromptLine[];
@@ -8,7 +9,12 @@ export interface TerminalState {
     session: SimulatedSession | null;
 }
 
-export function useTerminalSession(name: string, dbUrl: string, onCommit?: () => void) {
+export function useTerminalSession(
+    name: string,
+    dbUrl: string,
+    onCommit?: () => void,
+    onEvent?: (event: TimelineEvent) => void
+) {
     const [lines, setLines] = useState<PromptLine[]>([{ type: 'info', content: 'Initializing PGlite...' }]);
     const [status, setStatus] = useState<LockState>('idle');
     const [session, setSession] = useState<SimulatedSession | null>(null);
@@ -45,6 +51,17 @@ export function useTerminalSession(name: string, dbUrl: string, onCommit?: () =>
 
         // Echo input
         setLines(prev => [...prev, { type: 'input', content: sql }]);
+
+        if (onEvent) {
+            onEvent({
+                id: Math.random().toString(36).substr(2, 9),
+                timestamp: Date.now(),
+                sessionName: name,
+                type: 'query',
+                content: sql,
+                status: 'active'
+            });
+        }
 
         // Hack for UI feedback: Set a timeout. If not done in 100ms, set status 'waiting'.
         let timeoutId: ReturnType<typeof setTimeout> | undefined;

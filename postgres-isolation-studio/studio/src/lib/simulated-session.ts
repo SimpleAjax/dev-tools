@@ -27,9 +27,6 @@ export class SimulatedSession {
     }
 
     async query(sql: string): Promise<any> {
-        await this.ensureDb();
-        if (!this.db) throw new Error("DB initialization failed");
-
         // simple parser for POC
         const isBegin = sql.match(/\bBEGIN\b/i);
         const isCommit = sql.match(/\bCOMMIT\b/i);
@@ -43,25 +40,63 @@ export class SimulatedSession {
             console.log(`${this.name}: BEGIN (TxId: ${this.txId})`);
         }
 
-        if (isSelectForUpdate && this.txId) {
+        // PRE-CHECK: If we are about to need a lock, acquire it BEFORE opening DB connection if possible?
+        // Actually, for UPDATE/SELECT FOR UPDATE, we need to parse the ID.
+        // We can do this with regex as we are doing.
+
+        let lockResource: string | null = null;
+
+        if (isSelectForUpdate) {
             const [_, table, id] = isSelectForUpdate;
-            const resource = `${table}:${id}`;
-            // eslint-disable-next-line
-            console.log(`${this.name}: Requesting Lock on ${resource}...`);
-            // This will AWAIT if locked
-            await globalLockManager.acquire(resource, this.txId);
-            // eslint-disable-next-line
-            console.log(`${this.name}: Lock Granted. Running SQL...`);
+            lockResource = `${table}:${id}`;
+        } else if (isUpdate) {
+            const [_, table, id] = isUpdate;
+            lockResource = `${table}:${id}`;
         }
 
-        if (isUpdate && this.txId) {
-            const [_, table, id] = isUpdate;
-            const resource = `${table}:${id}`;
-            // "Implicit" lock check for UPDATE
-            // eslint-disable-next-line
-            console.log(`${this.name}: Requesting Write Lock on ${resource}...`);
-            await globalLockManager.acquire(resource, this.txId);
+        // CRITICAL FIX: If we need a lock, get it BEFORE ensureDb if we aren't already connected.
+        // If we are already connected (inTx), we might be fine, or we might block ourselves?
+        // No, if we are inTx, we are the one holding the file lock potentially.
+        // Wait, PGlite/IDB locking is per-file.
+        // If Session A is InTx, it has `this.db` open. It holds the IDB lock.
+        // Session B (inTx=false) comes in. `ensureDb` tries to open `new PGlite()`. 
+        // This `new PGlite()` will BLOCK on IDB lock held by A.
+        // This is why B hangs and never visualized.
+
+        // We need B to wait on a LOGICAL lock before it even tries directly if we want to simulate row locking 
+        // instead of falling back to file locking.
+
+        // BUT, if B is just doing `UPDATE...`, and A holds a row lock...
+        // If we use `globalLockManager`, B awaits there. 
+        // `ensureDb` hasn't run yet?
+        // `await this.ensureDb()` is at line 30.
+        // We need to move `ensureDb` DOWN, after lock acquisition.
+
+        // Logic to handle "Implicit Transactions"
+        // If we are NOT in a transaction, but we are running a LOCKING command,
+        // we must pretend we are in a transaction for the duration of this lock check.
+
+        let tempTxId: string | null = null;
+
+        if (lockResource) {
+            if (!this.txId) {
+                // Implicit Transaction!
+                tempTxId = this.name + '_implicit_' + Date.now();
+                // We do NOT set this.inTx = true, because we want to auto-close later.
+            }
+
+            const activeTxId = this.txId || tempTxId;
+
+            if (activeTxId) {
+                console.log(`${this.name}: Requesting Lock on ${lockResource} (Tx: ${activeTxId})...`);
+                await globalLockManager.acquire(lockResource, activeTxId);
+                console.log(`${this.name}: Lock Granted.`);
+            }
         }
+
+        // NOW we connect.
+        await this.ensureDb();
+        if (!this.db) throw new Error("DB initialization failed");
 
         // Execute real SQL
         let res;
@@ -71,8 +106,16 @@ export class SimulatedSession {
             const duration = Date.now() - start;
             if (duration > 50) console.log(`${this.name}: SQL Executed in ${duration}ms`);
         } catch (e) {
-            // If error in transaction, we usually abort, but for now just throw
+            // Need to release locks if implicit?
+            // If explicit transaction, we usually keep locks until rollback.
+            // If implicit, we should release?
             throw e;
+        } finally {
+            // If it was an implicit transaction, release locks logic
+            if (tempTxId) {
+                console.log(`${this.name}: Implicit Tx Done. Releasing locks...`);
+                globalLockManager.releaseAll(tempTxId);
+            }
         }
 
         if ((isCommit || isRollback) && this.txId) {

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import {
   ResizableHandle,
   ResizablePanel,
@@ -7,6 +7,9 @@ import {
 import { TableWatcher } from "@/components/TableWatcher";
 import { SqlTerminal } from "@/components/SqlTerminal";
 import { useTerminalSession } from "@/hooks/use-terminal-session";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TransactionTimeline } from "@/components/TransactionTimeline";
+import type { TimelineEvent } from "@/types/timeline";
 
 import { GuideModal } from "@/components/GuideModal";
 
@@ -27,23 +30,16 @@ function App() {
   const terminalARef = useRef<any>(null);
   const terminalBRef = useRef<any>(null);
 
+  // Timeline State
+  const [events, setEvents] = useState<TimelineEvent[]>([]);
+
+  const handleEvent = useCallback((ev: TimelineEvent) => {
+    setEvents(prev => [...prev, ev]);
+  }, []);
+
   const syncB = () => {
     // If A commits, we want to refresh B IF B is idle.
     if (terminalBRef.current && terminalBRef.current.status === 'idle') {
-      // Check if B has an active transaction? 
-      // Our `status` is currently 'idle' | 'waiting' | 'acquired'. 
-      // 'acquired' means actively waiting on lock or held lock? 
-      // Actually `status` in SqlTerminal is mostly about UI busy/lock state.
-      // It doesn't track "In Transaction".
-      // But for now, if it's 'idle', it's safe-ish to refresh (snapshot reset).
-      // Ideally we only refresh if NOT in transaction. 
-      // PGlite doesn't easily tell us "in transaction" without tracking.
-      // For now, let's just Try Refreshing. It resets the session. 
-      // If the user was in the middle of a Tx, they lose it. 
-      // This creates a "Sync" outcome -> B sees A's data.
-      // If user was typing `INSERT...`, they lose the session state.
-      // Maybe only sync if we haven't typed "BEGIN"?
-      // Use 'refresh' method.
       terminalBRef.current.refresh();
     }
   };
@@ -54,8 +50,8 @@ function App() {
     }
   };
 
-  const terminalA = useTerminalSession("Terminal A", "idb://studio-db-v1", syncB);
-  const terminalB = useTerminalSession("Terminal B", "idb://studio-db-v1", syncA);
+  const terminalA = useTerminalSession("Terminal A", "idb://studio-db-v1", syncB, handleEvent);
+  const terminalB = useTerminalSession("Terminal B", "idb://studio-db-v1", syncA, handleEvent);
 
   // Keep refs up to date
   terminalARef.current = terminalA;
@@ -125,8 +121,23 @@ function App() {
 
           {/* Sidebar / Viz */}
           <ResizablePanel defaultSize={30} minSize={20} collapsible={true}>
-            <div className="h-full border-l bg-card p-4">
-              <TableWatcher session={terminalA.session} onExecute={terminalA.execute} />
+            <div className="h-full border-l bg-card">
+              <Tabs defaultValue="timeline" className="h-full flex flex-col">
+                <div className="p-2 border-b">
+                  <TabsList className="w-full grid grid-cols-2">
+                    <TabsTrigger value="timeline">Timeline</TabsTrigger>
+                    <TabsTrigger value="watcher">Data</TabsTrigger>
+                  </TabsList>
+                </div>
+
+                <TabsContent value="watcher" className="flex-1 overflow-hidden m-0 p-4 pt-2">
+                  <TableWatcher session={terminalA.session} onExecute={terminalA.execute} />
+                </TabsContent>
+
+                <TabsContent value="timeline" className="flex-1 overflow-hidden m-0">
+                  <TransactionTimeline events={events} />
+                </TabsContent>
+              </Tabs>
             </div>
           </ResizablePanel>
 

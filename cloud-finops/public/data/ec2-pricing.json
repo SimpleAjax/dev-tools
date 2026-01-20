@@ -1,0 +1,1002 @@
+[
+  {
+    "type": "t3.nano",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.micro",
+    "vCPU": 1,
+    "memoryGB": 0.5,
+    "onDemandPrice": 0.0025,
+    "spotPriceEst": 0.0009,
+    "reserved1Yr": 0.0015,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.small",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.medium",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.large",
+    "vCPU": 4,
+    "memoryGB": 4,
+    "onDemandPrice": 0.01,
+    "spotPriceEst": 0.0035,
+    "reserved1Yr": 0.006,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.xlarge",
+    "vCPU": 8,
+    "memoryGB": 8,
+    "onDemandPrice": 0.02,
+    "spotPriceEst": 0.007,
+    "reserved1Yr": 0.012,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 16,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 32,
+    "onDemandPrice": 0.08,
+    "spotPriceEst": 0.028,
+    "reserved1Yr": 0.048,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t3.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.nano",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.micro",
+    "vCPU": 1,
+    "memoryGB": 0.5,
+    "onDemandPrice": 0.0025,
+    "spotPriceEst": 0.0009,
+    "reserved1Yr": 0.0015,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.small",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.medium",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.large",
+    "vCPU": 4,
+    "memoryGB": 4,
+    "onDemandPrice": 0.01,
+    "spotPriceEst": 0.0035,
+    "reserved1Yr": 0.006,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.xlarge",
+    "vCPU": 8,
+    "memoryGB": 8,
+    "onDemandPrice": 0.02,
+    "spotPriceEst": 0.007,
+    "reserved1Yr": 0.012,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 16,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 32,
+    "onDemandPrice": 0.08,
+    "spotPriceEst": 0.028,
+    "reserved1Yr": 0.048,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "t4g.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.nano",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.micro",
+    "vCPU": 1,
+    "memoryGB": 2,
+    "onDemandPrice": 0.02,
+    "spotPriceEst": 0.007,
+    "reserved1Yr": 0.012,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.small",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.medium",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.large",
+    "vCPU": 4,
+    "memoryGB": 16,
+    "onDemandPrice": 0.08,
+    "spotPriceEst": 0.028,
+    "reserved1Yr": 0.048,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.xlarge",
+    "vCPU": 8,
+    "memoryGB": 32,
+    "onDemandPrice": 0.16,
+    "spotPriceEst": 0.056,
+    "reserved1Yr": 0.096,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 64,
+    "onDemandPrice": 0.32,
+    "spotPriceEst": 0.112,
+    "reserved1Yr": 0.192,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 128,
+    "onDemandPrice": 0.64,
+    "spotPriceEst": 0.224,
+    "reserved1Yr": 0.384,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m5.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.nano",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.micro",
+    "vCPU": 1,
+    "memoryGB": 2,
+    "onDemandPrice": 0.02,
+    "spotPriceEst": 0.007,
+    "reserved1Yr": 0.012,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.small",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.medium",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.large",
+    "vCPU": 4,
+    "memoryGB": 16,
+    "onDemandPrice": 0.08,
+    "spotPriceEst": 0.028,
+    "reserved1Yr": 0.048,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.xlarge",
+    "vCPU": 8,
+    "memoryGB": 32,
+    "onDemandPrice": 0.16,
+    "spotPriceEst": 0.056,
+    "reserved1Yr": 0.096,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 64,
+    "onDemandPrice": 0.32,
+    "spotPriceEst": 0.112,
+    "reserved1Yr": 0.192,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 128,
+    "onDemandPrice": 0.64,
+    "spotPriceEst": 0.224,
+    "reserved1Yr": 0.384,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "m6g.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 8,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.nano",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.micro",
+    "vCPU": 1,
+    "memoryGB": 1,
+    "onDemandPrice": 0.0175,
+    "spotPriceEst": 0.0061,
+    "reserved1Yr": 0.0105,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.small",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.medium",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.large",
+    "vCPU": 4,
+    "memoryGB": 8,
+    "onDemandPrice": 0.07,
+    "spotPriceEst": 0.0245,
+    "reserved1Yr": 0.042,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.xlarge",
+    "vCPU": 8,
+    "memoryGB": 16,
+    "onDemandPrice": 0.14,
+    "spotPriceEst": 0.049,
+    "reserved1Yr": 0.084,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 32,
+    "onDemandPrice": 0.28,
+    "spotPriceEst": 0.098,
+    "reserved1Yr": 0.168,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 64,
+    "onDemandPrice": 0.56,
+    "spotPriceEst": 0.196,
+    "reserved1Yr": 0.336,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c5.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.nano",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.micro",
+    "vCPU": 1,
+    "memoryGB": 1,
+    "onDemandPrice": 0.0175,
+    "spotPriceEst": 0.0061,
+    "reserved1Yr": 0.0105,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.small",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.medium",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.large",
+    "vCPU": 4,
+    "memoryGB": 8,
+    "onDemandPrice": 0.07,
+    "spotPriceEst": 0.0245,
+    "reserved1Yr": 0.042,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.xlarge",
+    "vCPU": 8,
+    "memoryGB": 16,
+    "onDemandPrice": 0.14,
+    "spotPriceEst": 0.049,
+    "reserved1Yr": 0.084,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 32,
+    "onDemandPrice": 0.28,
+    "spotPriceEst": 0.098,
+    "reserved1Yr": 0.168,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 64,
+    "onDemandPrice": 0.56,
+    "spotPriceEst": 0.196,
+    "reserved1Yr": 0.336,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "c6g.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 4,
+    "onDemandPrice": 0.035,
+    "spotPriceEst": 0.0123,
+    "reserved1Yr": 0.021,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.nano",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.micro",
+    "vCPU": 1,
+    "memoryGB": 4,
+    "onDemandPrice": 0.025,
+    "spotPriceEst": 0.0087,
+    "reserved1Yr": 0.015,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.small",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.medium",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.large",
+    "vCPU": 4,
+    "memoryGB": 32,
+    "onDemandPrice": 0.1,
+    "spotPriceEst": 0.035,
+    "reserved1Yr": 0.06,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.xlarge",
+    "vCPU": 8,
+    "memoryGB": 64,
+    "onDemandPrice": 0.2,
+    "spotPriceEst": 0.07,
+    "reserved1Yr": 0.12,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 128,
+    "onDemandPrice": 0.4,
+    "spotPriceEst": 0.14,
+    "reserved1Yr": 0.24,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 256,
+    "onDemandPrice": 0.8,
+    "spotPriceEst": 0.28,
+    "reserved1Yr": 0.48,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r5.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.nano",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.micro",
+    "vCPU": 1,
+    "memoryGB": 4,
+    "onDemandPrice": 0.025,
+    "spotPriceEst": 0.0087,
+    "reserved1Yr": 0.015,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.small",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.medium",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.large",
+    "vCPU": 4,
+    "memoryGB": 32,
+    "onDemandPrice": 0.1,
+    "spotPriceEst": 0.035,
+    "reserved1Yr": 0.06,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.xlarge",
+    "vCPU": 8,
+    "memoryGB": 64,
+    "onDemandPrice": 0.2,
+    "spotPriceEst": 0.07,
+    "reserved1Yr": 0.12,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 128,
+    "onDemandPrice": 0.4,
+    "spotPriceEst": 0.14,
+    "reserved1Yr": 0.24,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 256,
+    "onDemandPrice": 0.8,
+    "spotPriceEst": 0.28,
+    "reserved1Yr": 0.48,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "r6g.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 16,
+    "onDemandPrice": 0.05,
+    "spotPriceEst": 0.0175,
+    "reserved1Yr": 0.03,
+    "architecture": "arm",
+    "family": "General Purpose"
+  },
+  {
+    "type": "g4dn.nano",
+    "vCPU": 4,
+    "memoryGB": 16,
+    "onDemandPrice": 0.5,
+    "spotPriceEst": 0.175,
+    "reserved1Yr": 0.3,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.micro",
+    "vCPU": 1,
+    "memoryGB": 4,
+    "onDemandPrice": 0.25,
+    "spotPriceEst": 0.0875,
+    "reserved1Yr": 0.15,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.small",
+    "vCPU": 4,
+    "memoryGB": 16,
+    "onDemandPrice": 0.5,
+    "spotPriceEst": 0.175,
+    "reserved1Yr": 0.3,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.medium",
+    "vCPU": 4,
+    "memoryGB": 16,
+    "onDemandPrice": 0.5,
+    "spotPriceEst": 0.175,
+    "reserved1Yr": 0.3,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.large",
+    "vCPU": 8,
+    "memoryGB": 32,
+    "onDemandPrice": 1,
+    "spotPriceEst": 0.35,
+    "reserved1Yr": 0.6,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.xlarge",
+    "vCPU": 16,
+    "memoryGB": 64,
+    "onDemandPrice": 2,
+    "spotPriceEst": 0.7,
+    "reserved1Yr": 1.2,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.2xlarge",
+    "vCPU": 32,
+    "memoryGB": 128,
+    "onDemandPrice": 4,
+    "spotPriceEst": 1.4,
+    "reserved1Yr": 2.4,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.4xlarge",
+    "vCPU": 64,
+    "memoryGB": 256,
+    "onDemandPrice": 8,
+    "spotPriceEst": 2.8,
+    "reserved1Yr": 4.8,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.8xlarge",
+    "vCPU": 4,
+    "memoryGB": 16,
+    "onDemandPrice": 0.5,
+    "spotPriceEst": 0.175,
+    "reserved1Yr": 0.3,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "g4dn.12xlarge",
+    "vCPU": 4,
+    "memoryGB": 16,
+    "onDemandPrice": 0.5,
+    "spotPriceEst": 0.175,
+    "reserved1Yr": 0.3,
+    "architecture": "arm",
+    "family": "GPU Optimized"
+  },
+  {
+    "type": "p3.nano",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.micro",
+    "vCPU": 1,
+    "memoryGB": 0.5,
+    "onDemandPrice": 0.0025,
+    "spotPriceEst": 0.0009,
+    "reserved1Yr": 0.0015,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.small",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.medium",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.large",
+    "vCPU": 4,
+    "memoryGB": 4,
+    "onDemandPrice": 0.01,
+    "spotPriceEst": 0.0035,
+    "reserved1Yr": 0.006,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.xlarge",
+    "vCPU": 8,
+    "memoryGB": 8,
+    "onDemandPrice": 0.02,
+    "spotPriceEst": 0.007,
+    "reserved1Yr": 0.012,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.2xlarge",
+    "vCPU": 16,
+    "memoryGB": 16,
+    "onDemandPrice": 0.04,
+    "spotPriceEst": 0.014,
+    "reserved1Yr": 0.024,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.4xlarge",
+    "vCPU": 32,
+    "memoryGB": 32,
+    "onDemandPrice": 0.08,
+    "spotPriceEst": 0.028,
+    "reserved1Yr": 0.048,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.8xlarge",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  },
+  {
+    "type": "p3.12xlarge",
+    "vCPU": 2,
+    "memoryGB": 2,
+    "onDemandPrice": 0.005,
+    "spotPriceEst": 0.0017,
+    "reserved1Yr": 0.003,
+    "architecture": "x86",
+    "family": "General Purpose"
+  }
+]
