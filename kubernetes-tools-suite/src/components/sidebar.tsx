@@ -19,7 +19,11 @@ import {
     Cpu,
     ShieldCheck,
     Network,
-    CircleOff
+    CircleOff,
+    Zap,
+    Wifi,
+    FileCheck,
+    Terminal
 } from "lucide-react"
 
 const sidebarItems = [
@@ -93,6 +97,30 @@ const sidebarItems = [
         title: "Taint Visualizer",
         href: "/tools/taint-toleration",
         icon: CircleOff,
+        variant: "ghost"
+    },
+    {
+        title: "Serverless Cost",
+        href: "/tools/serverless-cost-calc",
+        icon: Zap,
+        variant: "ghost"
+    },
+    {
+        title: "Bandwidth Calc",
+        href: "/tools/bandwidth-transfer-calc",
+        icon: Wifi,
+        variant: "ghost"
+    },
+    {
+        title: "YAML Validator",
+        href: "/tools/yaml-validator",
+        icon: FileCheck,
+        variant: "ghost"
+    },
+    {
+        title: "Run to Compose",
+        href: "/tools/docker-run-to-compose",
+        icon: Terminal,
         variant: "ghost"
     }
 ]

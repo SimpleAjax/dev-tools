@@ -19,6 +19,12 @@ import {
     FileImage,
     List,
     Camera,
+    ArrowRightLeft,
+    Binary,
+    Calculator,
+    Eye,
+    FileJson,
+    Search,
 } from "lucide-react";
 
 export interface Tool {
@@ -74,6 +80,18 @@ export const toolsCategories: Category[] = [
                 icon: List,
                 description: "Convert a list of lines into a JSON array."
             },
+            {
+                name: "Slug Generator",
+                href: "/tools/slug-generator",
+                icon: LinkIcon,
+                description: "Generate URL-friendly slugs from strings."
+            },
+            {
+                name: "Case Converter",
+                href: "/tools/case-converter",
+                icon: Type,
+                description: "Convert between camel, snake, kebab, and pascal case."
+            },
         ],
     },
     {
@@ -108,6 +126,47 @@ export const toolsCategories: Category[] = [
                 href: "/tools/aspect-ratio",
                 icon: Crop,
                 description: "Calculate aspect ratios and dimensions."
+            },
+            {
+                name: "CSV to JSON",
+                href: "/tools/csv-to-json",
+                icon: FileJson,
+                description: "Convert CSV data to JSON format."
+            },
+            {
+                name: "Hex Editor",
+                href: "/tools/hex-editor",
+                icon: Binary,
+                description: "View and edit binary data in hex format."
+            },
+        ],
+    },
+    {
+        name: "Math & Logic",
+        tools: [
+            {
+                name: "Base Converter",
+                href: "/tools/base-converter",
+                icon: ArrowRightLeft,
+                description: "Convert numbers between Hex, Binary, Decimal, and Octal."
+            },
+            {
+                name: "Bitwise Calculator",
+                href: "/tools/bitwise-calc",
+                icon: Binary,
+                description: "Perform AND, OR, XOR, NOT, and shift operations."
+            },
+            {
+                name: "Prime Checker",
+                href: "/tools/prime-checker",
+                icon: Calculator,
+                description: "Check if a number is prime and find factors."
+            },
+            {
+                name: "BigInt Calculator",
+                href: "/tools/bigint-calc",
+                icon: Calculator,
+                description: "Perform arithmetic on arbitrarily large integers."
             },
         ],
     },
@@ -167,6 +226,29 @@ export const toolsCategories: Category[] = [
                 href: "/tools/code-screenshot",
                 icon: Camera,
                 description: "Create beautiful code screenshots."
+            },
+            {
+                name: "Color Blindness Sim",
+                href: "/tools/color-blindness",
+                icon: Eye,
+                description: "Simulate color blindness on images."
+            },
+        ],
+    },
+    {
+        name: "Reference",
+        tools: [
+            {
+                name: "HTTP Status Guide",
+                href: "/tools/http-status",
+                icon: Search,
+                description: "Searchable reference for HTTP status codes."
+            },
+            {
+                name: "MIME Type Lookup",
+                href: "/tools/mime-lookup",
+                icon: Search,
+                description: "Searchable database of MIME types and extensions."
             },
         ],
     },

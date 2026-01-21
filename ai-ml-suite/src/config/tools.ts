@@ -14,7 +14,9 @@ import {
     Image,
     Mic,
     Download,
-    Brain
+    Brain,
+    GitCompare,
+    Trophy
 } from "lucide-react";
 
 export interface ToolConfig {
@@ -127,5 +129,18 @@ export const tools: ToolConfig[] = [
         href: "/tools/bandwidth-calc",
         description: "Estimate download times for large model weights.",
         icon: Download,
+    },
+    // New Additions
+    {
+        name: "Prompt Diff",
+        href: "/tools/prompt-diff",
+        description: "Side-by-side diff tool optimized for large prompt text blocks.",
+        icon: GitCompare,
+    },
+    {
+        name: "Model Leaderboard",
+        href: "/tools/model-leaderboard",
+        description: "Aggregated ELO rankings for top AI models.",
+        icon: Trophy,
     },
 ];

@@ -1,5 +1,5 @@
 
-import { Shield, FileJson, Terminal, Lock, Hash, Key, Network, Globe, Radio, Server } from "lucide-react";
+import { Shield, FileJson, Terminal, Lock, Hash, Key, Network, Globe, Radio, Server, Activity, Search, Wifi, Map, Cookie } from "lucide-react";
 
 export interface ToolConfig {
     slug: string;
@@ -154,6 +154,63 @@ export const tools: ToolConfig[] = [
         name: "Robots.txt Gen",
         description: "Create robots.txt files to control crawler access.",
         icon: FileJson,
+        category: "web"
+    },
+    // Tools Added in Step ID 0
+    {
+        slug: "ssl-cert-decoder",
+        name: "SSL Cert Decoder",
+        description: "Parse PEM/CRT certificates to view details like expiry and issuer.",
+        icon: Lock, // Using Lock as placeholder or FileKey if imported
+        category: "crypto"
+    },
+    {
+        slug: "hash-speed-benchmark",
+        name: "Hash Benchmark",
+        description: "Compare performance of hashing algorithms (MD5 vs Argon2, etc) in browser.",
+        icon: Activity, // Need to import Activity or Timer
+        category: "crypto"
+    },
+    {
+        slug: "ipv4-to-ipv6",
+        name: "IPv4 to IPv6",
+        description: "Convert IPv4 addresses to their IPv6 mapped counterparts.",
+        icon: Network,
+        category: "network"
+    },
+    {
+        slug: "dns-propagation",
+        name: "DNS Propagation",
+        description: "Check DNS records across multiple simulated global resolvers.",
+        icon: Globe,
+        category: "network"
+    },
+    {
+        slug: "whois-lookup",
+        name: "Whois Lookup",
+        description: "Lookup domain registration details (Mock/Simulated for static).",
+        icon: Search, // Need to import Search
+        category: "network"
+    },
+    {
+        slug: "public-ip",
+        name: "Public IP",
+        description: "Check your current public IP address and ISP details.",
+        icon: Wifi, // Need to import Wifi
+        category: "network"
+    },
+    {
+        slug: "traceroute-visualizer",
+        name: "Traceroute Visualizer",
+        description: "Visualize network hops on a map (Simulated).",
+        icon: Map, // Need to import Map
+        category: "network"
+    },
+    {
+        slug: "cookie-consent-config",
+        name: "Cookie Consent",
+        description: "Generate configuration for cookie consent banners.",
+        icon: Cookie, // Need to import Cookie
         category: "web"
     }
 ];

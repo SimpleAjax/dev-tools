@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Box, Container, Layers, Settings2, FileCode, Shield, FolderArchive, Bell, Cpu, ShieldCheck, Network, CircleOff } from "lucide-react"
+import { ArrowRight, Box, Container, Layers, Settings2, FileCode, Shield, FolderArchive, Bell, Cpu, ShieldCheck, Network, CircleOff, Zap, Wifi, FileCheck, Terminal } from "lucide-react"
 
 export const metadata = {
   title: 'Kubernetes Engineering Tools | Free DevOps Utilities',
@@ -106,6 +106,42 @@ const TOOLS = [
     href: "/tools/taint-toleration",
     icon: CircleOff,
     category: "Scheduling",
+    badge: "New"
+  },
+  {
+    id: "CLD-01",
+    title: "Serverless Cost Calculator",
+    description: "Compare running costs for AWS Lambda, Azure Functions, and GCP Cloud Functions.",
+    href: "/tools/serverless-cost-calc",
+    icon: Zap,
+    category: "Cost",
+    badge: "New"
+  },
+  {
+    id: "NET-01",
+    title: "Bandwidth Calculator",
+    description: "Calculate transfer times for large datasets based on your network speed (e.g. 100TB migration).",
+    href: "/tools/bandwidth-transfer-calc",
+    icon: Wifi,
+    category: "Network",
+    badge: "New"
+  },
+  {
+    id: "OPS-12",
+    title: "Kubernetes YAML Validator",
+    description: "Instant syntax checking and schema validation for your K8s manifests.",
+    href: "/tools/yaml-validator",
+    icon: FileCheck,
+    category: "Operations",
+    badge: "New"
+  },
+  {
+    id: "OPS-13",
+    title: "Docker Run to Compose",
+    description: "Convert ad-hoc docker run commands into reproducible docker-compose.yml files.",
+    href: "/tools/docker-run-to-compose",
+    icon: Terminal,
+    category: "Migration",
     badge: "New"
   }
 ]
